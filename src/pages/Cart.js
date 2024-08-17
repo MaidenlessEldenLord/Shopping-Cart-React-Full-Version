@@ -1,10 +1,11 @@
 import { useTitle } from "../hooks/useTitle";
 import { CartCard } from "../components"; 
-import { useCart } from '../context/CartContext';
+import { useSelector } from 'react-redux';
 
 export const Cart = () => {
-  const { total, cartList } = useCart();
   useTitle("Cart");
+  const cartList = useSelector(state => state.cartState.cartList); 
+  const total = useSelector(state => state.cartState.total);
 
   return (
     <main>
